@@ -24,7 +24,8 @@ public class AppDbContext : DbContext
             .Build();
 
         optionsBuilder.UseSqlServer(
-            config.GetConnectionString("DevelopmentConnection")
+        config.GetConnectionString("LocalConnection"),
+        m => m.MigrationsAssembly("StarterApp.Migrations")
         );
     }
 
@@ -68,6 +69,8 @@ public class AppDbContext : DbContext
                   .WithMany(r => r.UserRoles)
                   .HasForeignKey(ur => ur.RoleId);
         });
+
+        
     }
 
 }
