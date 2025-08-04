@@ -197,7 +197,7 @@
                             StrokeThickness="1"
                             Padding="20"
                             HeightRequest="80"
-                            IsVisible="{Binding IsSpeaker}">
+                            IsVisible="{Binding CanSeeSpeakerCard}">
     <Border.GestureRecognizers>
         <TapGestureRecognizer Command="{Binding NavigateToSpeakerPageCommand}" />
     </Border.GestureRecognizers>

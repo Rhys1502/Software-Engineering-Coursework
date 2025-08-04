@@ -39,6 +39,7 @@ public partial class MainViewModel : BaseViewModel
     /// @brief Indicates whether the current user has special privileges
     /// @details Observable property used to control visibility of speaker features
     [ObservableProperty]
+    
     private bool isSpeaker;
 
     /// @brief Default constructor for design-time support
@@ -49,6 +50,8 @@ public partial class MainViewModel : BaseViewModel
         Title = "Dashboard";
     }
     
+    public bool CanSeeSpeakerCard => IsAdmin || IsSpeaker;
+
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
     /// @param navigationService The navigation service instance
@@ -135,9 +138,9 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
 private async Task NavigateToSpeakerPageAsync()
 {
-    if (!IsSpeaker)
+    if (!IsSpeaker && !IsAdmin)
     {
-        await Application.Current.MainPage.DisplayAlert("Access Denied", "You are not a speaker.", "OK");
+        await Application.Current.MainPage.DisplayAlert("Access Denied", "You do not have permission to access the speaker page.", "OK");
         return;
     }
 
