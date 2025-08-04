@@ -1,0 +1,17 @@
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.AssemblyInfoInputs.cache
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.AssemblyInfo.cs
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.sourcelink.json
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\appsettings.json
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\StarterApp.Core.deps.json
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\StarterApp.Core.dll
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\StarterApp.Core.pdb
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\StarterApp.Database.dll
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\bin\Debug\net9.0\StarterApp.Database.pdb
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.csproj.AssemblyReference.cache
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterA.14323457.Up2Date
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.dll
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\refint\StarterApp.Core.dll
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\StarterApp.Core.pdb
+C:\Users\Rhys\Software-Engineering-Coursework\StarterApp\StarterApp.Core\obj\Debug\net9.0\ref\StarterApp.Core.dll
