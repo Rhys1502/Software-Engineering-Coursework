@@ -35,14 +35,19 @@ public partial class MainViewModel : BaseViewModel
     /// @details Observable property used to control visibility of admin features
     [ObservableProperty]
     private bool isAdmin;
+    
+    /// @brief Indicates whether the current user has special privileges
+    /// @details Observable property used to control visibility of speaker features
+    [ObservableProperty]
+    private bool isSpeaker;
 
     /// @brief Default constructor for design-time support
     /// @details Sets the title to "Dashboard"
     public MainViewModel()
-        {
-            // Default constructor for design time support
-            Title = "Dashboard";
-        }
+    {
+        // Default constructor for design time support
+        Title = "Dashboard";
+    }
     
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
@@ -63,6 +68,7 @@ public partial class MainViewModel : BaseViewModel
     {
         CurrentUser = _authService.CurrentUser;
         IsAdmin = _authService.HasRole("Admin");
+        IsSpeaker = _authService.HasRole("SpecialUser");
         
         if (CurrentUser != null)
         {
@@ -122,6 +128,21 @@ public partial class MainViewModel : BaseViewModel
         
         await _navigationService.NavigateToAsync("UserListPage");
     }
+
+    /// @brief Navigates to the speaker page
+    /// @details Relay command that navigates to the speaker page, special user only
+    /// @return A task representing the asynchronous navigation operation
+    [RelayCommand]
+private async Task NavigateToSpeakerPageAsync()
+{
+    if (!IsSpeaker)
+    {
+        await Application.Current.MainPage.DisplayAlert("Access Denied", "You are not a speaker.", "OK");
+        return;
+    }
+
+    await _navigationService.NavigateToAsync("SpeakerWelcomePage");
+}
 
     /// @brief Refreshes the dashboard data
     /// @details Relay command that reloads user data and simulates a refresh operation
