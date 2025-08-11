@@ -1,0 +1,28 @@
+# ---- Project/output ----
+PROJECT_NAME                 = "Starter App"
+OUTPUT_DIRECTORY             = docs
+GENERATE_HTML                = YES
+HTML_OUTPUT                  = html
+GENERATE_LATEX               = NO
+GENERATE_TREEVIEW           = YES
+
+# ---- Inputs (point to the folders you changed) ----
+INPUT                        = StarterApp/ViewModels \
+                               StarterApp/Services \
+                               StarterApp/Database/Models
+RECURSIVE                    = YES
+FILE_PATTERNS                = *.cs
+EXTENSION_MAPPING            = cs=C#
+EXCLUDE_PATTERNS             = **/bin/** **/obj/** **/Platforms/** **/Migrations/**
+
+# ---- What to include in docs ----
+EXTRACT_ALL                  = NO          # only show items that have comments
+HIDE_UNDOC_MEMBERS           = YES
+HIDE_UNDOC_CLASSES           = YES
+EXTRACT_PRIVATE              = NO          # set YES if you want private members too
+JAVADOC_AUTOBRIEF            = YES
+OPTIMIZE_OUTPUT_JAVA         = YES         # better for C#/Java-style docs
+
+# ---- Make paths tidy in pages ----
+FULL_PATH_NAMES              = NO
+STRIP_FROM_PATH              = .

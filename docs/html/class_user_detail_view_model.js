@@ -1,0 +1,26 @@
+var class_user_detail_view_model =
+[
+    [ "UserDetailViewModel", "class_user_detail_view_model.html#a7f5957fa0811816732e83f2215c2da47", null ],
+    [ "OnPropertyChanged", "class_user_detail_view_model.html#a6ea94782bb6f7e819ce1b978b7c1e153", null ],
+    [ "AddRoleCommand", "class_user_detail_view_model.html#aadf23b091ea1631f5075c6a3d6e6a8b6", null ],
+    [ "AvailableRoles", "class_user_detail_view_model.html#a05ab0cfaa7118e24fc1d7f1db0f7dbc7", null ],
+    [ "BackCommand", "class_user_detail_view_model.html#ac5d70dd1064d23b87fe075de203f4611", null ],
+    [ "CanDeleteCurrentUser", "class_user_detail_view_model.html#a7378d3568a14620b76990d879446db65", null ],
+    [ "ConfirmPassword", "class_user_detail_view_model.html#ae85ac9013e897c3ed9edf692d13a9bff", null ],
+    [ "DeleteUserCommand", "class_user_detail_view_model.html#ac488e60dc00ebc10e9c5984f9c6a0a7f", null ],
+    [ "Email", "class_user_detail_view_model.html#a765ccd63887f3478b71e3d627c406c81", null ],
+    [ "ErrorMessage", "class_user_detail_view_model.html#a9b15babf1e5d9d728d8d986f055749af", null ],
+    [ "FirstName", "class_user_detail_view_model.html#af6d889709bfd036818c776ff6f863a91", null ],
+    [ "IsActive", "class_user_detail_view_model.html#a1df0b6137f4ebdc6dba492d7cb6009b0", null ],
+    [ "IsLoading", "class_user_detail_view_model.html#a2f9f0a1ae93f78142bc4e6d1bd961140", null ],
+    [ "IsNewUser", "class_user_detail_view_model.html#aafde21f1dd9e7eb231746e6aac67335e", null ],
+    [ "LastName", "class_user_detail_view_model.html#afd6172bd27af02fa5649f483975e5d26", null ],
+    [ "PageTitle", "class_user_detail_view_model.html#a4cf3110315d3e30eb241a87221d2c4cf", null ],
+    [ "Password", "class_user_detail_view_model.html#aa7e095555782c19f1cf7bf23ad305aea", null ],
+    [ "PropertyChanged", "class_user_detail_view_model.html#a87bb4c38115cdb86de669fcd873fe679", null ],
+    [ "RemoveRoleCommand", "class_user_detail_view_model.html#a610148dcab848dee81ac54c027af33e5", null ],
+    [ "SaveUserCommand", "class_user_detail_view_model.html#a82bc3bac2166527440933e624a36f387", null ],
+    [ "ShowPasswordFields", "class_user_detail_view_model.html#a64024d151c866152f33d2baee0c0d2ab", null ],
+    [ "SuccessMessage", "class_user_detail_view_model.html#a8d0376399595b059885abc5eac055dba", null ],
+    [ "UserId", "class_user_detail_view_model.html#a6307e3ef2d7480d555a61325c2760093", null ]
+];
