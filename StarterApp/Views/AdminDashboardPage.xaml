@@ -6,7 +6,11 @@
              x:DataType="vm:AdminDashboardViewModel">
 
     <VerticalStackLayout Padding="20">
-        <Label Text="Welcome, Admin!" FontSize="24" HorizontalOptions="Center" />
-        <Label Text="This is your dashboard." FontSize="16" HorizontalOptions="Center" />
+        <Label Text="Welcome, Admin!"
+                FontSize="24"
+                HorizontalOptions="Center"/>
+        <Label Text="This is your dashboard."
+                FontSize="16"
+                HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

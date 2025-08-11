@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarterApp.Database", "Star
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarterApp.Migrations", "StarterApp.Migrations\StarterApp.Migrations.csproj", "{56596C37-4445-4915-8BA5-F9DADDE70F15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarterApp.Tests", "StarterApp.Tests\StarterApp.Tests.csproj", "{B0926406-52E1-42D7-8AE4-9ACDF9474139}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
