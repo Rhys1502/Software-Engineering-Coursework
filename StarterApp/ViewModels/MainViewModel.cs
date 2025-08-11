@@ -18,7 +18,6 @@ public partial class MainViewModel : BaseViewModel
     /// @brief Authentication service for managing user authentication
     private readonly IAuthenticationService _authService;
 
-
     /// @brief Navigation service for managing page navigation
     private readonly INavigationService _navigationService;
 
@@ -37,6 +36,12 @@ public partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     private bool isAdmin;
 
+    /// @brief Indicates whether the current user has special privileges
+    /// @details Observable property used to control visibility of speaker features
+    [ObservableProperty]
+
+    private bool isSpeaker;
+
     [ObservableProperty]
     private bool isAttendee; // OrdinaryUser
 
@@ -48,7 +53,7 @@ public partial class MainViewModel : BaseViewModel
         Title = "Dashboard";
     }
 
-    public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
+    public bool CanSeeSpeakerCard => IsAdmin || IsSpeaker;
 
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
@@ -69,8 +74,7 @@ public partial class MainViewModel : BaseViewModel
     {
         CurrentUser = _authService.CurrentUser;
         IsAdmin = _authService.HasRole("Admin");
-        IsAttendee = _authService.HasRole("OrdinaryUser");
-
+        IsSpeaker = _authService.HasRole("SpecialUser");
 
         if (CurrentUser != null)
         {
@@ -144,8 +148,22 @@ public partial class MainViewModel : BaseViewModel
             return;
         }
 
-
         await _navigationService.NavigateToAsync("UserListPage");
+    }
+
+    /// @brief Navigates to the speaker page
+    /// @details Relay command that navigates to the speaker page, special user only
+    /// @return A task representing the asynchronous navigation operation
+    [RelayCommand]
+    private async Task NavigateToSpeakerPageAsync()
+    {
+        if (!IsSpeaker && !IsAdmin)
+        {
+            await Application.Current.MainPage.DisplayAlert("Access Denied", "You do not have permission to access the speaker page.", "OK");
+            return;
+        }
+
+        await _navigationService.NavigateToAsync("SpeakerWelcomePage");
     }
 
     /// @brief Navigates to the admin dashboard page
@@ -174,7 +192,6 @@ public partial class MainViewModel : BaseViewModel
         {
             IsBusy = true;
             LoadUserData();
-
 
             // Simulate refresh delay
             await Task.Delay(1000);
