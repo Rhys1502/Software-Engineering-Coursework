@@ -17,7 +17,7 @@ public partial class MainViewModel : BaseViewModel
 {
     /// @brief Authentication service for managing user authentication
     private readonly IAuthenticationService _authService;
-    
+
     /// @brief Navigation service for managing page navigation
     private readonly INavigationService _navigationService;
 
@@ -35,11 +35,11 @@ public partial class MainViewModel : BaseViewModel
     /// @details Observable property used to control visibility of admin features
     [ObservableProperty]
     private bool isAdmin;
-    
+
     /// @brief Indicates whether the current user has special privileges
     /// @details Observable property used to control visibility of speaker features
     [ObservableProperty]
-    
+
     private bool isSpeaker;
 
     /// @brief Default constructor for design-time support
@@ -49,7 +49,7 @@ public partial class MainViewModel : BaseViewModel
         // Default constructor for design time support
         Title = "Dashboard";
     }
-    
+
     public bool CanSeeSpeakerCard => IsAdmin || IsSpeaker;
 
     /// @brief Initializes a new instance of the MainViewModel class
@@ -72,7 +72,7 @@ public partial class MainViewModel : BaseViewModel
         CurrentUser = _authService.CurrentUser;
         IsAdmin = _authService.HasRole("Admin");
         IsSpeaker = _authService.HasRole("SpecialUser");
-        
+
         if (CurrentUser != null)
         {
             WelcomeMessage = $"Welcome, {CurrentUser.FullName}!";
@@ -86,9 +86,9 @@ public partial class MainViewModel : BaseViewModel
     private async Task LogoutAsync()
     {
         var result = await Application.Current.MainPage.DisplayAlert(
-            "Logout", 
-            "Are you sure you want to logout?", 
-            "Yes", 
+            "Logout",
+            "Are you sure you want to logout?",
+            "Yes",
             "No");
 
         if (result)
@@ -128,7 +128,7 @@ public partial class MainViewModel : BaseViewModel
             await Application.Current.MainPage.DisplayAlert("Access Denied", "You don't have permission to access admin features.", "OK");
             return;
         }
-        
+
         await _navigationService.NavigateToAsync("UserListPage");
     }
 
@@ -136,16 +136,16 @@ public partial class MainViewModel : BaseViewModel
     /// @details Relay command that navigates to the speaker page, special user only
     /// @return A task representing the asynchronous navigation operation
     [RelayCommand]
-private async Task NavigateToSpeakerPageAsync()
-{
-    if (!IsSpeaker && !IsAdmin)
+    private async Task NavigateToSpeakerPageAsync()
     {
-        await Application.Current.MainPage.DisplayAlert("Access Denied", "You do not have permission to access the speaker page.", "OK");
-        return;
-    }
+        if (!IsSpeaker && !IsAdmin)
+        {
+            await Application.Current.MainPage.DisplayAlert("Access Denied", "You do not have permission to access the speaker page.", "OK");
+            return;
+        }
 
-    await _navigationService.NavigateToAsync("SpeakerWelcomePage");
-}
+        await _navigationService.NavigateToAsync("SpeakerWelcomePage");
+    }
 
     /// @brief Refreshes the dashboard data
     /// @details Relay command that reloads user data and simulates a refresh operation
@@ -157,7 +157,7 @@ private async Task NavigateToSpeakerPageAsync()
         {
             IsBusy = true;
             LoadUserData();
-            
+
             // Simulate refresh delay
             await Task.Delay(1000);
         }

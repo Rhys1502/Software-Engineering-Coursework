@@ -6,14 +6,14 @@
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:TempViewModel />
+        <vm:TempViewModel/>
     </ContentPage.BindingContext>
 
     <VerticalStackLayout>
-        <Label 
+        <Label
             Text="{Binding Message}"
             FontSize="24"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

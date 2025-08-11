@@ -16,7 +16,7 @@ public partial class LoginViewModel : BaseViewModel
 {
     /// @brief Authentication service for managing user login
     private readonly IAuthenticationService _authService;
-    
+
     /// @brief Navigation service for managing page navigation
     private readonly INavigationService _navigationService;
 
