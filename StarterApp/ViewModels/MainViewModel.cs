@@ -18,6 +18,7 @@ public partial class MainViewModel : BaseViewModel
     /// @brief Authentication service for managing user authentication
     private readonly IAuthenticationService _authService;
 
+
     /// @brief Navigation service for managing page navigation
     private readonly INavigationService _navigationService;
 
@@ -49,6 +50,11 @@ public partial class MainViewModel : BaseViewModel
 
     public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
 
+    {
+        // Default constructor for design time support
+        Title = "Dashboard";
+    }
+
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
     /// @param navigationService The navigation service instance
@@ -70,6 +76,7 @@ public partial class MainViewModel : BaseViewModel
         IsAdmin = _authService.HasRole("Admin");
         IsAttendee = _authService.HasRole("OrdinaryUser");
 
+
         if (CurrentUser != null)
         {
             WelcomeMessage = $"Welcome, {CurrentUser.FullName}!";
@@ -83,6 +90,9 @@ public partial class MainViewModel : BaseViewModel
     private async Task LogoutAsync()
     {
         var result = await Application.Current.MainPage.DisplayAlert(
+            "Logout",
+            "Are you sure you want to logout?",
+            "Yes",
             "Logout",
             "Are you sure you want to logout?",
             "Yes",
@@ -142,8 +152,25 @@ public partial class MainViewModel : BaseViewModel
             return;
         }
 
+
         await _navigationService.NavigateToAsync("UserListPage");
     }
+
+    /// @brief Navigates to the admin dashboard page
+    /// @details Relay command that only allows access if the user is an admin
+    /// @return A task representing the asynchronous navigation operation
+    [RelayCommand]
+    private async Task NavigateToAdminDashboardAsync()
+    {
+        if (!IsAdmin)
+        {
+            await Application.Current.MainPage.DisplayAlert("Access Denied", "You don't have permission to access admin features.", "OK");
+            return;
+        }
+
+        await _navigationService.NavigateToAsync("AdminDashboardPage");
+    }
+
 
     /// @brief Refreshes the dashboard data
     /// @details Relay command that reloads user data and simulates a refresh operation
@@ -155,6 +182,7 @@ public partial class MainViewModel : BaseViewModel
         {
             IsBusy = true;
             LoadUserData();
+
 
             // Simulate refresh delay
             await Task.Delay(1000);

@@ -48,7 +48,7 @@ public class AuthenticationService : IAuthenticationService
                 .Where(ur => ur.IsActive)
                 .Select(ur => ur.Role.Name)
                 .ToList();
-
+                
             AuthenticationStateChanged?.Invoke(this, true);
             return new AuthenticationResult(true, "Login successful");
         }
