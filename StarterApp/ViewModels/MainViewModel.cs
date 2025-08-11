@@ -35,14 +35,17 @@ public partial class MainViewModel : BaseViewModel
     /// @details Observable property used to control visibility of admin features
     [ObservableProperty]
     private bool isAdmin;
+    
+    [ObservableProperty]
+    private bool isAttendee; // OrdinaryUser
 
     /// @brief Default constructor for design-time support
     /// @details Sets the title to "Dashboard"
     public MainViewModel()
-        {
-            // Default constructor for design time support
-            Title = "Dashboard";
-        }
+    {
+        // Default constructor for design time support
+        Title = "Dashboard";
+    }
     
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
@@ -63,7 +66,8 @@ public partial class MainViewModel : BaseViewModel
     {
         CurrentUser = _authService.CurrentUser;
         IsAdmin = _authService.HasRole("Admin");
-        
+        IsAttendee = _authService.HasRole("OrdinaryUser");
+
         if (CurrentUser != null)
         {
             WelcomeMessage = $"Welcome, {CurrentUser.FullName}!";
@@ -97,6 +101,22 @@ public partial class MainViewModel : BaseViewModel
     {
         await _navigationService.NavigateToAsync("TempPage");
     }
+
+    /// <summary>
+/// Navigate to attendee home if the user is an attendee (OrdinaryUser).
+/// </summary>
+[RelayCommand]
+private async Task NavigateToAttendeeHomeAsync()
+{
+    if (!IsAttendee && !IsAdmin) // let admins in too if you like
+    {
+        await Application.Current.MainPage.DisplayAlert("Access Denied", "You are not an attendee.", "OK");
+        return;
+    }
+
+    await _navigationService.NavigateToAsync("AttendeeHomePage");
+}
+
 
     /// @brief Navigates to the settings page
     /// @details Relay command that navigates to the application settings page

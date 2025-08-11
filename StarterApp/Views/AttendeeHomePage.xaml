@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StarterApp.Views.AttendeeHomePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Attendee">
+  <ScrollView>
+    <VerticalStackLayout Padding="20" Spacing="10">
+      <Label Text="Welcome, Attendee!" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+      <Label Text="Your sessions and reservations will appear here." HorizontalOptions="Center" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
