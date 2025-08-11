@@ -50,11 +50,6 @@ public partial class MainViewModel : BaseViewModel
 
     public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
 
-    {
-        // Default constructor for design time support
-        Title = "Dashboard";
-    }
-
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
     /// @param navigationService The navigation service instance
@@ -90,9 +85,6 @@ public partial class MainViewModel : BaseViewModel
     private async Task LogoutAsync()
     {
         var result = await Application.Current.MainPage.DisplayAlert(
-            "Logout",
-            "Are you sure you want to logout?",
-            "Yes",
             "Logout",
             "Are you sure you want to logout?",
             "Yes",
