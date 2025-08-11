@@ -17,7 +17,7 @@ public partial class MainViewModel : BaseViewModel
 {
     /// @brief Authentication service for managing user authentication
     private readonly IAuthenticationService _authService;
-    
+
     /// @brief Navigation service for managing page navigation
     private readonly INavigationService _navigationService;
 
@@ -35,7 +35,7 @@ public partial class MainViewModel : BaseViewModel
     /// @details Observable property used to control visibility of admin features
     [ObservableProperty]
     private bool isAdmin;
-    
+
     [ObservableProperty]
     private bool isAttendee; // OrdinaryUser
 
@@ -47,8 +47,8 @@ public partial class MainViewModel : BaseViewModel
         Title = "Dashboard";
     }
 
-     public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
-    
+    public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
+
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
     /// @param navigationService The navigation service instance
@@ -83,9 +83,9 @@ public partial class MainViewModel : BaseViewModel
     private async Task LogoutAsync()
     {
         var result = await Application.Current.MainPage.DisplayAlert(
-            "Logout", 
-            "Are you sure you want to logout?", 
-            "Yes", 
+            "Logout",
+            "Are you sure you want to logout?",
+            "Yes",
             "No");
 
         if (result)
@@ -105,19 +105,19 @@ public partial class MainViewModel : BaseViewModel
     }
 
     /// <summary>
-/// Navigate to attendee home if the user is an attendee (OrdinaryUser).
-/// </summary>
-[RelayCommand]
-private async Task NavigateToAttendeeHomeAsync()
-{
-    if (!IsAttendee && !IsAdmin) // let admins in too if you like
+    /// Navigate to attendee home if the user is an attendee (OrdinaryUser).
+    /// </summary>
+    [RelayCommand]
+    private async Task NavigateToAttendeeHomeAsync()
     {
-        await Application.Current.MainPage.DisplayAlert("Access Denied", "You are not an attendee.", "OK");
-        return;
-    }
+        if (!IsAttendee && !IsAdmin) // let admins in too if you like
+        {
+            await Application.Current.MainPage.DisplayAlert("Access Denied", "You are not an attendee.", "OK");
+            return;
+        }
 
-    await _navigationService.NavigateToAsync("AttendeeHomePage");
-}
+        await _navigationService.NavigateToAsync("AttendeeHomePage");
+    }
 
 
     /// @brief Navigates to the settings page
@@ -141,7 +141,7 @@ private async Task NavigateToAttendeeHomeAsync()
             await Application.Current.MainPage.DisplayAlert("Access Denied", "You don't have permission to access admin features.", "OK");
             return;
         }
-        
+
         await _navigationService.NavigateToAsync("UserListPage");
     }
 
@@ -155,7 +155,7 @@ private async Task NavigateToAttendeeHomeAsync()
         {
             IsBusy = true;
             LoadUserData();
-            
+
             // Simulate refresh delay
             await Task.Delay(1000);
         }
