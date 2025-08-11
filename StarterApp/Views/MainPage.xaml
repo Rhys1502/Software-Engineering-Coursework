@@ -197,7 +197,7 @@
         StrokeThickness="1"
         Padding="20"
         HeightRequest="80"
-        IsVisible="{Binding IsAttendee}">
+        IsVisible="{Binding CanSeeAttendeeCard}">
   <Border.StrokeShape>
     <RoundRectangle CornerRadius="12" />
   </Border.StrokeShape>

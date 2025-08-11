@@ -46,6 +46,8 @@ public partial class MainViewModel : BaseViewModel
         // Default constructor for design time support
         Title = "Dashboard";
     }
+
+     public bool CanSeeAttendeeCard => IsAdmin || IsAttendee;
     
     /// @brief Initializes a new instance of the MainViewModel class
     /// @param authService The authentication service instance
